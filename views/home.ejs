@@ -6,14 +6,89 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %> </title>
-    <link rel="stylesheet" href="/assets/CSS/home.css">
+    <link rel="stylesheet" href="/CSS/home.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link rel="icon" href="/assets/images/fevicon.png">
+    <link rel="icon" type="image/x-icon" href="/images/fevicon.png">
 
 </head>
 
-<body>
+<body onload="startTime()">
+
+    <div id="txt" class="aside clock">
+
+    </div>
+
+    <div id="main-frame">
+
+
+        <div id="heading">
+            <h1>TODO APP</h1>
+        </div>
+        <hr>
+        <div id="form">
+            <form action="/create-task" method="post">
+                <label for="description">DESCRIPTION</label>
+                <input name="description" id="description" placeholder="What do you need to do?">
+
+                <hr>
+
+                <!-- <h1>CATEGORY</h1> -->
+
+                <label for="category"> CATEGORY </label>
+                <select name="category" id="category">
+                    <option value="">Choose a category</option>
+                    <option value="Work"> Work </option>
+                    <option value="personal"> Personal</option>
+                    <option value="School"> School </option>
+                    <option value="Cleaning"> Cleaning</option>
+                    <option value="Other"> Other </option>
+                </select>
+
+
+
+                <label for="date" id="date"> DUE DATE </label>
+                <input name="date" type="date">
+
+
+                <hr>
+
+                <button type="submit" class="btnfos btnfos-5" id="add"> <i class="fas fa-plus-circle"></i> ADD TASK
+                </button>
+            </form>
+            <hr>
+
+            <div id="todo-list">
+                <ul>
+                    <% for(let i of  to_do_list) { %>
+                    <li>
+                        <div>
+                            <p class="descriptionInList"><span><i
+                                        class="fas fa-thumbtack"></i></span><%= i.description %></p>
+                            <p>
+                                <span><i class="fas fa-calendar-alt"></i></span>
+                                <%= Month[i.date.getMonth()]+ " "  + i.date.getDate() + " " + i.date.getFullYear() %>
+                            </p>
+                        </div>
+                        <p class="categoryInList">
+                            <span class="category-item"><%= i.category %></span>
+                            <% if (i.category == "Cleaning") { %>
+                            <% console.log("im in " + i.category) %>
+                            <!-- <script> document.getElementById("catgory-item").style.backgroundColor = "blue";</script> -->
+                            <% } %>
+                            <a class="delete" href="/delete-task/?id=<%= i._id %> ">
+                                <i class=" trash fas fa-trash"></i>
+                            </a>
+                        </p>
+                    </li>
+                    <hr>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/home.js"></script>
 
 </body>
 
