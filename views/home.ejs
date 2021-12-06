@@ -15,10 +15,12 @@
 
 <body onload="startTime()">
 
+    <!-- Clock Div -->
     <div id="txt" class="aside clock">
 
     </div>
 
+    <!-- Main Frame Div For main Content -->
     <div id="main-frame">
 
 
@@ -26,38 +28,34 @@
             <h1>TODO APP</h1>
         </div>
         <hr>
+        <!-- Form -->
         <div id="form">
             <form action="/create-task" method="post">
-                <label for="description">DESCRIPTION</label>
+                <!-- Description -->
+                <label for="description"><i class="fad fa-text-size"></i> DESCRIPTION</label>
                 <input name="description" id="description" placeholder="What do you need to do?">
-
                 <hr>
-
-                <!-- <h1>CATEGORY</h1> -->
-
-                <label for="category"> CATEGORY </label>
+                <!-- Category -->
+                <label for="category"><i class="fas fa-layer-group"></i> CATEGORY </label>
                 <select name="category" id="category">
                     <option value="">Choose a category</option>
                     <option value="Work"> Work </option>
-                    <option value="personal"> Personal</option>
+                    <option value="Personal"> Personal</option>
                     <option value="School"> School </option>
                     <option value="Cleaning"> Cleaning</option>
                     <option value="Other"> Other </option>
                 </select>
-
-
-
-                <label for="date" id="date"> DUE DATE </label>
-                <input name="date" type="date">
-
-
+                <!-- Due Date -->
+                <label for="date" id="date"><i class="fas fa-calendar-edit"></i> DUE DATE </label>
+                <input name="date" id="dateinput" type="date">
                 <hr>
-
+                <!-- Submit -->
                 <button type="submit" class="btnfos btnfos-5" id="add"> <i class="fas fa-plus-circle"></i> ADD TASK
                 </button>
             </form>
             <hr>
 
+            <!-- Task List -->
             <div id="todo-list">
                 <ul>
                     <% for(let i of  to_do_list) { %>
@@ -72,10 +70,6 @@
                         </div>
                         <p class="categoryInList">
                             <span class="category-item"><%= i.category %></span>
-                            <% if (i.category == "Cleaning") { %>
-                            <% console.log("im in " + i.category) %>
-                            <!-- <script> document.getElementById("catgory-item").style.backgroundColor = "blue";</script> -->
-                            <% } %>
                             <a class="delete" href="/delete-task/?id=<%= i._id %> ">
                                 <i class=" trash fas fa-trash"></i>
                             </a>

@@ -1,18 +1,21 @@
+// require Express
 const express = require('express');
-const port = 3000;
-const path = require('path');
+const port = 3000; // Port
+const path = require('path'); // Path
 
+// Require and Connect with Mongoose
 const db = require('./config/mongoose')
 const List = require('./models/list')
 
+
 const app = express();
-app.set('view engine', 'ejs');
+app.set('view engine', 'ejs'); // View Engine
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded());
 app.use(express.static('assets'));
 
 
-var month = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUNE', 'JULY', 'AGST', 'SEPT', 'OCT', 'NOV', 'DEC']
+var month = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUNE', 'JULY', 'AGST', 'SEPT', 'OCT', 'NOV', 'DEC'];
 app.get('/', function (req, res) {
     List.find({}, function (err, list) {
         if (err) {
@@ -29,10 +32,10 @@ app.get('/', function (req, res) {
 
 
 app.post('/create-task', function (req, res) {
-    console.log(req.body.description);
-    console.log(req.body.category);
-    console.log(req.body.date);
-    console.log(req.body);
+    // console.log(req.body.description);
+    // console.log(req.body.category);
+    // console.log(req.body.date);
+    // console.log(req.body);
     // contactList.push(req.body);
     List.create({
         description: req.body.description,
@@ -44,18 +47,16 @@ app.post('/create-task', function (req, res) {
             return;
         }
         console.log('***********', newTask);
-
         return res.redirect('back');
     })
 })
 
 
-
+// Delete Task
 app.get('/delete-task/', function (req, res) {
     // get the id from Query in the url
     let id = req.query.id;
     console.log(id);
-
     // find the contact in the database using id and delete
     List.findByIdAndDelete(id, function (err) {
         if (err) {
@@ -64,14 +65,6 @@ app.get('/delete-task/', function (req, res) {
         }
         return res.redirect('back');
     })
-    // let phone = req.query.phone;
-    // removeByAttr(contactList, 'phone', phone);
-    // let contactIndex = contactList.findIndex(a => a.phone === phone)
-    // if (contactIndex != -1) {
-    // contactList.splice(contactIndex, 1);
-    // }
-
-
 })
 
 

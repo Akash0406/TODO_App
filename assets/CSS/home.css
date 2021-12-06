@@ -5,12 +5,12 @@
     font-family: 'poppins', sans-serif;
 }
 
+/* Body Style */
 body{
     padding: 0;
     margin: 0;
     height: 100vh;
-    background: rgb(18,193,221);
-    background: linear-gradient(225deg, rgba(18,193,221,1) 4%, rgba(9,87,238,1) 51%, rgba(0,164,255,1) 96%);
+    background-color: rgb(250, 223, 223);
     overflow-x: hidden;
     background-repeat: no-repeat;
     background-size: cover;
@@ -19,39 +19,34 @@ body{
 
 }
 
-.aside {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* border: 2px solid red; */
-}
-
+/* Clock Style */
 .clock {
-    height: 100px;
+    position: sticky;
+    top: 0;
+    height: 60px;
     width: 100%;
-    font-size: 4rem;
-    line-height: 100px;  
-    background: inherit;
+    font-size: 2rem;
+    line-height: 60px;  
+    background-color: #3c424a;
     color: #eee;
     text-align: center;
-    border-radius: 15px;
+    border-end-start-radius: 1000px;
+    border-end-end-radius: 1000px;
     box-shadow: 0 0 7px #222;
-    text-shadow: 0 0 3px #fff;
+    text-shadow: 0 0 3px rgb(247, 244, 244);
+    z-index: 9;
   }
 
-
+/* Main Frame */
 #main-frame{
     padding: 20px;
     width: 40%;
     height: auto;
     margin: 10px auto;
-    color: rgba(202, 197, 197, 0.5);
+    color: rgba(252, 249, 249, 0.63);
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
     border-radius: 20px;
-
-    /* color: white; */
+    background-color: #3c424a;
 }
 
 /* heading */
@@ -59,13 +54,13 @@ body{
     font-size: 1.3rem;
     text-align: center;
     margin-bottom: 30px;
+    color: white;
 }
 
 #heading > h1 {
     display: inline-block;
     position: relative;
     text-transform: uppercase;
-    /* font-size: 2.5rem; */
 }
 
 #heading h1::before {
@@ -82,10 +77,8 @@ body{
 }
 
 #heading h1:hover:before{
-    
     width: 80%;
-    height: 3px;
-    
+    height: 3px; 
     border-radius: 30px;
     
 
@@ -94,24 +87,31 @@ body{
 
 /* Form */
 #form {
-    /* display: flex; */
     text-align: left;
-    /* flex-direction: column; */
     padding: 10px;
 }
 
 
 input{
-background: none;
-border-style: none;
+    background: none;
+    border-style: none;
 }
+
+#dateinput{
+    background: none;
+    border-style: none;
+    color: rgb(248, 245, 245);
+    font-size: 0.8rem;
+}
+
 
 input:focus{
     outline: none;
 }
 
 label {
-    color: black;
+    color: rgb(236, 231, 231);
+    padding-left: 10px;
 }
 
 
@@ -121,52 +121,61 @@ label {
     width: 100%;
     padding: 10px;
     font-size: large;
-    color: black;
+    color: rgb(248, 252, 255);
     margin: 10px;
 }
 
-
+/* Description in Taask List */
 .descriptionInList {
-    color: black;
+    color: rgb(253, 252, 252);
+    margin-bottom: 5px;
 }
 
 
 #category, #date {
-    width: 45%;
+    width: 35%;
     padding-right: 10px;
     margin: 10px;
     font-size: 1rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #date {
     padding-left: 10px;
     border-left: 2px solid white;
+    background-color: inherit;
 }
 
-.categoryInList .category-item{
-    /* border: 2px solid red; */
-    
+.categoryInList .category-item{    
     padding: 5px;
     margin-right: 5px;
     color: white;
     border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(228, 33, 33, 0.07) 0px 2px 4px, rgba(14, 129, 33, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 
 select {
-    border-style: none;
+    border-style: double;
+    margin: 80px;
+    padding: 5px;
+    /* background: rgba(0, 0, 0, 0.3); */
     background-color: inherit;
+    color: #fff;
+    /* text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4); */
+    border-radius: 20px;   
 }
 
-
-
-
+select >option {
+    /* background: rgba(19, 11, 11, 0.3); */
+    color: white;
+    outline: none;
+    background-color: #3c424a;
+}
 
 
 
 /* Add Button */
-
- 
 .btnfos {
     color: #fff;
     cursor: pointer;

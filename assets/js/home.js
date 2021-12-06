@@ -1,13 +1,9 @@
 // alert("it's Connected");
-
-
-
+// To Change The Color According to Category
 const test = document.getElementsByClassName("category-item");
-console.log(test);
 
 for (const element of test) {
     const category = element.innerHTML;
-    console.log(category);
     if (category == "Cleaning") {
         element.style.backgroundColor = "#064635";
     } else if (category == "Work") {
@@ -23,7 +19,7 @@ for (const element of test) {
 
 
 
-
+// Clock
 function startTime() {
     const today = new Date();
     let h = today.getHours();
