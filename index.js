@@ -43,7 +43,7 @@ app.post('/create-task', function (req, res) {
         date: req.body.date
     }, function (err, newTask) {
         if (err) {
-            console.log('error in creating a task');
+            console.log('ERROR');
             return;
         }
         console.log('***********', newTask);

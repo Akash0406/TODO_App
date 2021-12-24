@@ -1,7 +1,6 @@
 // alert("it's Connected");
 // To Change The Color According to Category
 const test = document.getElementsByClassName("category-item");
-
 for (const element of test) {
     const category = element.innerHTML;
     if (category == "Cleaning") {

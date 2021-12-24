@@ -8,7 +8,7 @@ const listSchema = new mongoose.Schema({
         required: true
     },
     category: {    // Category
-        type: String,
+        type: [String | null],
         required: true
     },
     date: {        // Date
