@@ -19,6 +19,7 @@
         "express": "^4.17.1",
         "mongodb": "^4.2.1",
         "mongoose": "^6.0.14",
+        "netlify-plugin-lighthouse": "^0.1.2",
         "nodemon": "^2.0.15"
     },
     "devDependencies": {},
